@@ -117,7 +117,7 @@ class Solution:
 [reading](https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0226.%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91.md)\
 [video](https://www.bilibili.com/video/BV1sP4y1f7q7/?spm_id_from=333.788&vd_source=63f26efad0d35bcbb0de794512ac21f3)\
 翻转二叉树 (优先掌握**递归**) \
-Here we can use preorder/postorder traversal to solve this question. 
+Here we can use preorder/postorder traversal to solve this question, which is better than 中序。
 ```python
 # ways 1: use recursion递归法 and preorder traversal:
 # Definition for a binary tree node.
@@ -171,11 +171,114 @@ class Solution:
 ## 101.Symmetric Tree
 [leetcode](https://leetcode.com/problems/symmetric-tree/)\
 [reading](https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0101.%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91.md)\
-[video](https://www.bilibili.com/video/BV1ue4y1Y7Mf/?spm_id_from=pageDriver&vd_source=63f26efad0d35bcbb0de794512ac21f3)
-对称二叉树 （优先掌握**递归**)
+[video](https://www.bilibili.com/video/BV1ue4y1Y7Mf/?spm_id_from=pageDriver&vd_source=63f26efad0d35bcbb0de794512ac21f3)\
+对称二叉树 （优先掌握**递归**)\
+Here the best way is **postorder traversal**, because we need to firstly collect the information of the **sub trees** of a node.\
+```python
+# ways 1: use recursion递归法 and postorder traversal:
+class Solution:
+    def isSymmetric(self, root: TreeNode) -> bool:
+        if not root:
+            return True
+        return self.compare(root.left, root.right)
+        
+    def compare(self, left, right):
+        #首先排除空节点的情况
+        if left == None and right != None: return False
+        elif left != None and right == None: return False
+        elif left == None and right == None: return True
+        #排除了空节点，再排除数值不相同的情况
+        elif left.val != right.val: return False
+        
+        #此时就是：左右节点都不为空，且数值相同的情况
+        #此时才做递归，做下一层的判断
+        outside = self.compare(left.left, right.right) #左子树：左、 右子树：右
+        inside = self.compare(left.right, right.left) #左子树：右、 右子树：左
+        isSame = outside and inside #左子树：中、 右子树：中 （逻辑处理）
+        return isSame
+```
+```python
+# ways 2: use 迭代法queue, NOT 层次遍历（迭代法）or 前中后序的迭代写法 here!
+import collections
+class Solution:
+    def isSymmetric(self, root: TreeNode) -> bool:
+        if not root:
+            return True
+        queue = collections.deque()
+        queue.append(root.left) #将左子树头结点加入队列
+        queue.append(root.right) #将右子树头结点加入队列
+        while queue: #接下来就要判断这这两个树是否相互翻转
+            leftNode = queue.popleft()
+            rightNode = queue.popleft()
+            if not leftNode and not rightNode: #左节点为空、右节点为空，此时说明是对称的
+                continue
+            
+            #左右一个节点不为空，或者都不为空但数值不相同，返回false
+            if not leftNode or not rightNode or leftNode.val != rightNode.val:
+                return False
+            queue.append(leftNode.left) #加入左节点左孩子
+            queue.append(rightNode.right) #加入右节点右孩子
+            queue.append(leftNode.right) #加入左节点右孩子
+            queue.append(rightNode.left) #加入右节点左孩子
+        return True
+```
+```python
+# ways 3: use 迭代法stack, similar to ways2 迭代法queue:
+class Solution:
+    def isSymmetric(self, root: TreeNode) -> bool:
+        if not root:
+            return True
+        st = [] #这里改成了栈
+        st.append(root.left)
+        st.append(root.right)
+        while st:
+            rightNode = st.pop()
+            leftNode = st.pop()
+            if not leftNode and not rightNode:
+                continue
+            if not leftNode or not rightNode or leftNode.val != rightNode.val:
+                return False
+            st.append(leftNode.left)
+            st.append(rightNode.right)
+            st.append(leftNode.right)
+            st.append(rightNode.left)
+        return True
+```
+```python
+# ways 4: 迭代法层次遍历
+class Solution:
+    def isSymmetric(self, root: TreeNode) -> bool:
+        if not root:
+            return True
+        
+        queue = collections.deque([root.left, root.right])
+        
+        while queue:
+            level_size = len(queue)
+            
+            if level_size % 2 != 0:
+                return False
+            
+            level_vals = []
+            for i in range(level_size):
+                node = queue.popleft()
+                if node:
+                    level_vals.append(node.val)
+                    queue.append(node.left)
+                    queue.append(node.right)
+                else:
+                    level_vals.append(None)
+                    
+            if level_vals != level_vals[::-1]:
+                return False
+            
+        return True
+```
 
 
 
+#### 100.相同的树
+#### 572.另一个树的子树
 
 
 
