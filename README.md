@@ -64,4 +64,23 @@ class Solution:
 #### 107. Binary Tree Level Order Traversal II
 return levels[::-1] here
 #### 199. Binary Tree Right Side View
+```python
+#This time we do not need to return a list of lists, just one final list of numbers needs to be returned here.
+class Solution:
+    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+        if not root:
+            return []
+        result = []
+        queue = deque([root])
+        while queue:
+            result.append(queue[0].val)
+            for _ in range(len(queue)):
+                tmp = queue.popleft()
+                if tmp.right:
+                    queue.append(tmp.right)
+                if tmp.left:
+                    queue.append(tmp.left)
+        return result
+```
+
 
