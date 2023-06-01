@@ -43,6 +43,9 @@ class Solution:
 ```
 ```python
 # ways 2: 递归法
+#确定递归函数的参数和返回值
+#确定终止条件
+#确定单层递归的逻辑
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         levels = []
@@ -58,3 +61,5 @@ class Solution:
         self.helper(node.left, level+1, levels)
         self.helper(node.right, level+1, levels)
 ```
+
+
