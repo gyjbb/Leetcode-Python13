@@ -1,11 +1,15 @@
 # Leetcode-Python13
 
-## 102. Binary Tree Level Order Traversal
+## 102. Binary Tree Level Order Traversal, ## 226. Invert Binary Tree, 101.Symmetric Tree
 
 May 31, 2023  4h
 
 This is the thirteenth day for leetcode python study. Today we will learn more about the Binary Tree!\
-The challenges today are about ~~need to delete later~~. \
+The first challenges today is how to use queue to realize 层次遍历（迭代法）。 \
+Then, in the second and third challenges, we reviewed how to use recursion递归 to solve problems, like in the last chapter Leetcode-Python12. \
+In conclusion, recursion递归 needs to carefully consider the 深度前中后序；\
+迭代 can also have 深度前中后序, besides, 迭代 has 广度优先遍历/层次遍历, and simply 迭代queue/stack.
+
 深度优先遍历: **前序**遍历（递归法，迭代法), **中序**遍历（递归法，迭代法）, **后序**遍历（递归法，迭代法）\
 广度优先遍历: 层次遍历（迭代法）\
 递归法: 1.确定递归函数的参数和返回值; 2.确定终止条件; 3.确定单层递归的逻辑
