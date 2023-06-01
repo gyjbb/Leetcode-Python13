@@ -82,5 +82,24 @@ class Solution:
                     queue.append(tmp.left)
         return result
 ```
-
+#### 637. Average of Levels in Binary Tree
+```python
+class Solution:
+    def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
+        if not root:
+            return 0
+        queue = collections.deque([root])
+        result = []
+        while queue:
+            level = []
+            for _ in range(len(queue)):
+                cur = queue.popleft()
+                level.append(cur.val)
+                if cur.left:
+                    queue.append(cur.left)
+                if cur.right:
+                    queue.append(cur.right)
+            result.append(sum(level)/len(level))
+        return result
+```
 
