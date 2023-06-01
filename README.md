@@ -102,4 +102,21 @@ class Solution:
             result.append(sum(level)/len(level))
         return result
 ```
+#### 429, 515, 116, 117, 104, 111
+- 429.N叉树的层序遍历
+- 515.在每个树行中找最大值
+- 116.填充每个节点的下一个右侧节点指针
+- 117.填充每个节点的下一个右侧节点指针II
+- 104.二叉树的最大深度
+- 111.二叉树的最小深度
 
+## 226. Invert Binary Tree
+翻转二叉树 （优先掌握递归）\ 
+[leetcode](https://leetcode.com/problems/invert-binary-tree/)\
+[reading](https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0226.%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91.md)\
+[video](https://www.bilibili.com/video/BV1sP4y1f7q7/?spm_id_from=333.788&vd_source=63f26efad0d35bcbb0de794512ac21f3)\
+
+
+
+## 101.
+对称二叉树 （优先掌握递归）\
