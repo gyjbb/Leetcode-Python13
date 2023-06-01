@@ -1,6 +1,6 @@
 # Leetcode-Python13
 
-## 102. Binary Tree Level Order Traversal, 226. Invert Binary Tree, 101.Symmetric Tree
+## 102. Binary Tree Level Order Traversal, 226. Invert Binary Tree, 101. Symmetric Tree
 
 May 31, 2023  4h
 
