@@ -1,2 +1,60 @@
 # Leetcode-Python13
-Binary Tree 2
+
+## 102. Binary Tree Level Order Traversal
+
+May 31, 2023  4h
+
+This is the thirteenth day for leetcode python study. Today we will learn more about the Binary Tree!\
+The challenges today are about ~~need to delete later~~.
+
+
+## 102. Binary Tree Level Order Traversal
+[leetcode](https://leetcode.com/problems/binary-tree-level-order-traversal/)\
+[Reading link](https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0102.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86.md)\
+[video](https://www.bilibili.com/video/BV1GY4y1u7b2/?spm_id_from=333.788&vd_source=63f26efad0d35bcbb0de794512ac21f3)\
+The recursion we learned in the last chapter is 深度优先搜索。\
+层序遍历二叉树,相当于广度优先搜索. We can use **queue** to store the elements in each layer, and record the queue's size when we traverse each  layer of the binary tree.
+
+```python
+# ways 1: 利用长度法
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if not root:
+            return []
+        queue = collections.deque([root]) #put the root of binary tree into a queue
+        result = []
+        while queue:
+            level = [] # create a list to store tree's this level's elements
+            for _ in range(len(queue)):
+                cur = queue.popleft()
+                level.append(cur.val)
+                if cur.left:
+                    queue.append(cur.left)
+                if cur.right:
+                    queue.append(cur.right)
+            result.append(level)
+        return result
+```
+```python
+# ways 2: 递归法
+class Solution:
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        levels = []
+        self.helper(root,0,levels)
+        return levels
+    
+    def helper(self, node,level,levels):
+        if not node:
+            return
+        if len(levels) == level:
+            levels.append([])
+        levels[level].append(node.val)
+        self.helper(node.left, level+1, levels)
+        self.helper(node.right, level+1, levels)
+```
