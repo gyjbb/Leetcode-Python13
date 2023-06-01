@@ -14,7 +14,6 @@ The challenges today are about ~~need to delete later~~.
 [video](https://www.bilibili.com/video/BV1GY4y1u7b2/?spm_id_from=333.788&vd_source=63f26efad0d35bcbb0de794512ac21f3)\
 The recursion we learned in the last chapter is 深度优先搜索。\
 层序遍历二叉树,相当于广度优先搜索. We can use **queue** to store the elements in each layer, and record the queue's size when we traverse each  layer of the binary tree.
-
 ```python
 # ways 1: 利用长度法
 # Definition for a binary tree node.
@@ -62,4 +61,6 @@ class Solution:
         self.helper(node.right, level+1, levels)
 ```
 
-
+#### 107. Binary Tree Level Order Traversal II
+return levels[::-1] here
+#### 
