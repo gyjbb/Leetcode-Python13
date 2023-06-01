@@ -5,17 +5,19 @@
 May 31, 2023  4h
 
 This is the thirteenth day for leetcode python study. Today we will learn more about the Binary Tree!\
-The challenges today are about ~~need to delete later~~.
-
+The challenges today are about ~~need to delete later~~. \
+深度优先遍历: **前序**遍历（递归法，迭代法), **中序**遍历（递归法，迭代法）, **后序**遍历（递归法，迭代法）\
+广度优先遍历: 层次遍历（迭代法）\
+递归法: 1.确定递归函数的参数和返回值; 2.确定终止条件; 3.确定单层递归的逻辑
 
 ## 102. Binary Tree Level Order Traversal
 [leetcode](https://leetcode.com/problems/binary-tree-level-order-traversal/)\
 [Reading link](https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0102.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86.md)\
 [video](https://www.bilibili.com/video/BV1GY4y1u7b2/?spm_id_from=333.788&vd_source=63f26efad0d35bcbb0de794512ac21f3)\
 The recursion we learned in the last chapter is 深度优先搜索。\
-层序遍历二叉树,相当于广度优先搜索. We can use **queue** to store the elements in each layer, and record the queue's size when we traverse each  layer of the binary tree.
+**层序遍历二叉树**,相当于广度优先搜索. We can use **queue** to store the elements in each layer, and record the queue's size when we traverse each  layer of the binary tree.
 ```python
-# ways 1: 利用长度法
+# ways 1: 迭代法, 广度优先遍历
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -114,7 +116,7 @@ class Solution:
 [leetcode](https://leetcode.com/problems/invert-binary-tree/)\
 [reading](https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0226.%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91.md)\
 [video](https://www.bilibili.com/video/BV1sP4y1f7q7/?spm_id_from=333.788&vd_source=63f26efad0d35bcbb0de794512ac21f3)\
-翻转二叉树 (优先掌握递归) \
+翻转二叉树 (优先掌握**递归**) \
 Here we can use preorder/postorder traversal to solve this question. 
 ```python
 # ways 1: use recursion递归法 and preorder traversal:
@@ -166,8 +168,11 @@ class Solution:
         return root   
 ```
 
-## 101.
-对称二叉树 （优先掌握递归)
+## 101.Symmetric Tree
+[leetcode](https://leetcode.com/problems/symmetric-tree/)\
+[reading](https://github.com/youngyangyang04/leetcode-master/blob/master/problems/0101.%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91.md)\
+[video](https://www.bilibili.com/video/BV1ue4y1Y7Mf/?spm_id_from=pageDriver&vd_source=63f26efad0d35bcbb0de794512ac21f3)
+对称二叉树 （优先掌握**递归**)
 
 
 
