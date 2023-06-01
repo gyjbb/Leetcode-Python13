@@ -149,6 +149,22 @@ class Solution:
                 stack.append(node.right)  
         return root
 ```
+```python
+# ways 3: 迭代法：广度优先遍历（层序遍历）：
+class Solution:
+    def invertTree(self, root: TreeNode) -> TreeNode:
+        if not root: 
+            return None
+
+        queue = collections.deque([root])    
+        while queue:
+            for i in range(len(queue)):
+                node = queue.popleft()
+                node.left, node.right = node.right, node.left
+                if node.left: queue.append(node.left)
+                if node.right: queue.append(node.right)
+        return root   
+```
 
 ## 101.
 对称二叉树 （优先掌握递归)
