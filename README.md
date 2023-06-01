@@ -117,7 +117,7 @@ class Solution:
 翻转二叉树 (优先掌握递归) \
 Here we can use preorder/postorder traversal to solve this question. 
 ```python
-# ways 1: use recursion and preorder traversal:
+# ways 1: use recursion递归法 and preorder traversal:
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
